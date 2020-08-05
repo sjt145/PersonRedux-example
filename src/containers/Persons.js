@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AddPerson from '../components/AddPerson/AddPerson'
 import Person from '../components/Person/Person'
-
+import * as types from '../store/type'
 class Persons extends Component {
   state = {
     personsName: '',
@@ -62,13 +62,13 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onAdd: (name, age) => dispatch({
-      type: "ADD_PERSON", value: {
+      type: types.ADD_PERSON, value: {
         id: Math.random(), // not realy unique but good enough here
         name: name,
         age: age
       }
     }),
-    onRemove: (id) => dispatch({ type: "REMOVE_PERSON", value: id }),
+    onRemove: (id) => dispatch({ type: types.REMOVE_PERSON, value: id }),
   }
 }
 
